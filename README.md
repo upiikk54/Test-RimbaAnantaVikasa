@@ -39,7 +39,9 @@ Saya biasa sebut struktur project ini sebagai Repository Pattern.
 2. Install Node.js dan PostgreSQL di komputer Anda
 3. Jalankan perintah `yarn install` atau `yarn` untuk menginstal dependensi
 4. Konfigurasi file `.env` dengan informasi database Anda
-5. Jalankan perintah `yarn dev` untuk menjalankan server
+5. Jalankan perintah `npx sequelize-cli db:create` untuk membuat database
+6. Jalankan perintah `npx sequelize-cli db:migrate` untuk membuat tabel database
+7. Jalankan perintah `yarn dev` untuk menjalankan server
 
 ## Testing
 
