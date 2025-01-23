@@ -1,4 +1,6 @@
-const { Users } = require("../models");
+const {
+    Users
+} = require("../models");
 
 class UserRepository {
     static async createUser({
@@ -6,18 +8,14 @@ class UserRepository {
         email,
         age
     }) {
-        try {
-            const createdUser = await Users.create({
-                name,
-                email,
-                age
-            });
+        const createdUser = await Users.create({
+            name,
+            email,
+            age
+        });
 
-            return createdUser;
-        } catch (error) {
-            console.log('Repository Error:', error); // Tambahkan ini untuk debug
-            throw error; // Re-throw error untuk ditangkap service
-        }
+        return createdUser;
+
     }
 
     // ------------------------- Get User By Id ------------------------- //

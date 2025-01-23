@@ -26,7 +26,7 @@ class UserService {
             return {
                 status: false,
                 statusCode: 400,
-                message: err.message || "Sumber tidak ada.",
+                message: "Sumber tidak ada.",
                 data: {
                     createdUser: null,
                 },
@@ -78,7 +78,7 @@ class UserService {
             return {
                 status: false,
                 statusCode: 400,
-                message: err.message || "Sumber tidak ada.",
+                message: "Sumber tidak ada.",
                 data: {
                     updatedUser: null,
                 },
@@ -123,7 +123,7 @@ class UserService {
             return {
                 status: false,
                 statusCode: 400,
-                message: err.message || "Sumber tidak ada.",
+                message: "Sumber tidak ada.",
                 data: {
                     deletedUser: null,
                 },
@@ -149,7 +149,7 @@ class UserService {
             return {
                 status: false,
                 statusCode: 400,
-                message: err.message || "Sumber tidak ada.",
+                message: "Sumber tidak ada.",
                 data: {
                     allUsers: null,
                 },
@@ -167,19 +167,31 @@ class UserService {
                 id
             });
 
-            return {
-                status: true,
-                statusCode: 200,
-                message: "User berhasil diambil",
-                data: {
-                    getUserById: getUserById,
-                },
-            };
+            if (getUserById.id == id) {
+                return {
+                    status: true,
+                    statusCode: 200,
+                    message: "User berhasil diambil",
+                    data: {
+                        getUserById: getUserById,
+                    },
+                };
+            } else {
+                return {
+                    status: false,
+                    statusCode: 400,
+                    message: "User tidak ditemukan.",
+                    data: {
+                        getUserById: null,
+                    },
+                };
+            }
+
         } catch (err) {
             return {
                 status: false,
                 statusCode: 400,
-                message: err.message || "Sumber tidak ada.",
+                message: "Sumber tidak ada.",
                 data: {
                     getUserById: null,
                 },

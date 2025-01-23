@@ -16,8 +16,6 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cors());
-
-// Add request logger middleware
 app.use(requestLogger);
 
 // ------------------------- Import Controller ------------------------- //
